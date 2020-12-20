@@ -8,11 +8,11 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.CyApp</groupId>
-	<artifactId>CynergyApp</artifactId>
+	<groupId>io.github.cynergy</groupId>
+	<artifactId>userservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CynergyApp</name>
-	<description>Demo project for Spring Boot</description>
+	<name>User Service</name>
+	<description>User service for the college app</description>
 
 	<properties>
 		<java.version>1.8</java.version>

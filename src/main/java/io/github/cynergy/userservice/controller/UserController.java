@@ -1,4 +1,4 @@
-package com.CyApp.CynergyApp.controller;
+package io.github.cynergy.userservice.controller;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.CyApp.CynergyApp.model.User;
-import com.CyApp.CynergyApp.repository.UserRepository;
+import io.github.cynergy.userservice.model.User;
+import io.github.cynergy.userservice.repository.UserRepository;
 
 @RestController
 public class UserController {

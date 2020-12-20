@@ -1,4 +1,4 @@
-package com.CyApp.CynergyApp.model;
+package io.github.cynergy.userservice.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

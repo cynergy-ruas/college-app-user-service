@@ -1,8 +1,8 @@
-package com.CyApp.CynergyApp.repository;
+package io.github.cynergy.userservice.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.CyApp.CynergyApp.model.User;
+import io.github.cynergy.userservice.model.User;
 
 public interface UserRepository extends MongoRepository<User, Integer> {
 
