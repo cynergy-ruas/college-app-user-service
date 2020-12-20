@@ -1,30 +1,41 @@
 package io.github.cynergy.userservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.github.cynergy.userservice.model.ApiResponse;
 import io.github.cynergy.userservice.model.User;
-import io.github.cynergy.userservice.repository.UserRepository;
+import io.github.cynergy.userservice.service.UserService;
+import io.github.cynergy.userservice.utils.UserNotFoundException;
 
+@RequestMapping("user")
 @RestController
 public class UserController {
 
 	@Autowired
-	private UserRepository userReposity;
+	private UserService service;
 	
-	@PostMapping("/user")
-	public String saveUser(@RequestBody User user){
-		userReposity.save(user);
-		return "User successfully registered";
+	@PostMapping("update")
+	public ApiResponse updateUser(@RequestHeader("App-User-Id") String userId, @RequestBody User user) throws UserNotFoundException {
+		this.service.updateUser(userId, user);
+
+		return ApiResponse.Ok();
 	}
-	
-	@GetMapping("/user")
-	public List<User> getUsers(){
-		return userReposity.findAll();
-		}
+
+	@PostMapping("create")
+	public ApiResponse createUser(@RequestHeader("App-User-Id") String userId, @RequestBody User user) {
+		this.service.createUser(userId, user);
+
+		return ApiResponse.Ok();
+	}
+
+	@GetMapping
+	public User getUser(@RequestHeader("App-User-Id") String userId) throws UserNotFoundException {
+		return service.getUser(userId);
+	}
 }

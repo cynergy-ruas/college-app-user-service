@@ -1,2 +1,29 @@
 # college-app-user-service
-The user service for the college app.
+The microservice that handles user related operations for the college app
+
+## Development
+Run the service by:
+
+```
+$ MONGODB_URI=<mongo-uri> ./mvnw spring-boot:run
+```
+
+contact repo admin for the mongodb uri.
+
+## Production
+
+Build the application using,
+```
+$ ./mvnw package
+```
+
+Then run,
+```
+$ mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
+$ docker build -t userservice:0.0.1 .
+```
+
+To run the docker container,
+```
+$ docker run -p 8080:8080 -e MONGODB_URI=<mongo-uri> userservice:0.0.1
+```
