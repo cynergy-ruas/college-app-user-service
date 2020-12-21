@@ -12,15 +12,9 @@ contact repo admin for the mongodb uri.
 
 ## Production
 
-Build the application using,
+Build the docker image using,
 ```
-$ ./mvnw package
-```
-
-Then run,
-```
-$ mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
-$ docker build -t userservice:0.0.1 .
+$ ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=cynergyruas/ruas-app:user-service-0.0.1
 ```
 
 To run the docker container,
